@@ -7,9 +7,15 @@ const port = process.env.PORT || 8080;
 const logger = require('morgan');
 const cors = require('cors');
 
+//router imports
+const productRouter = require('./routers/product.router');
+
 //wire up middleware
 server.use(logger('dev'));
 server.use(cors());
+
+//wire up the router(s)
+server.use(productRouter);
 
 server.get('/',(req,res)=>{
   res.send('It Works');
