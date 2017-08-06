@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const server = express();
 
-const { mongoURI } = require('./credentials');
+const mongoURI = process.env.MONGOURI || require('./credentials').mongoURI;
 const port = process.env.PORT || 8080;
 
 //connect to the db
